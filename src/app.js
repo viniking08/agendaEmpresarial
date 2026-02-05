@@ -16,7 +16,7 @@ app.get('/funcionario/:id', async (req, res) => {    // primeira rota get person
     const funcionarioId = req.params.id;
     try {
         const [rows] = await pool.execute('SELECT * FROM funcionario WHERE id_funcionario = ?', [funcionarioId]);
-        if (rows.lenght === 0) {
+        if (rows.length === 0) {
             return res.status(404).json({error: 'Funcionário não encontrado' });
         }
         res.json(rows[0]);
