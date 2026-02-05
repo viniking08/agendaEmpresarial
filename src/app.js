@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+const { testConnection } = require('./config/db');
+const serverRoutes = require('./server');
 
 app.use(express.json());
 
@@ -10,6 +12,32 @@ app.get('/', (req, res) => res.send(
     }
 ));
 
+app.get('/funcionario/:id', async (req, res) => {    // primeira rota get personalizada criada e copiada / precisa testar
+    const funcionarioId = req.params.id;
+    try {
+        const [rows] = await pool.execute('SELECT * FROM funcionario WHERE id_funcionario = ?', [funcionarioId]);
+        if (rows.lenght === 0) {
+            return res.status(404).json({error: 'Funcionário não encontrado' });
+        }
+        res.json(rows[0]);
+    }   catch (error) {
+        console.error('Erro ao consultar funcionário', error);
+        res.status(500).json({error: 'Erro ao consultar funcionário', details: error.message})
+    }
+});
+
+app.use('/', serverRoutes);
+
+async function verificarDB() {
+    const resultado = await testConnection();
+    console.log(`Sucesso: ${resultado.success} e Mensagem ${resultado.message}`)
+}
+verificarDB();
+
+module.exports = app;
+
+
+/*
 app.get('/hello', (req, res) =>
   res.send(
     {
@@ -54,3 +82,4 @@ app.use((err, req, res, next) => {
 })
 
 module.exports = app;
+*/
