@@ -59,4 +59,44 @@ router.delete('/:id/permanente', async (req, res) => {
   }
 });
 
+// Rota POST - /agendamento
+router.post('/', async (req, res) => {
+  const { titulo, data, id_funcionario, id_administrador } = req.body;
+
+  // validação básica
+  if (!titulo || !data || !id_funcionario || !id_administrador) {
+    return res.status(400).json({
+      error: 'Dados obrigatórios faltando',
+      message: 'Informe titulo, data, id_funcionario e id_administrador'
+    });
+  }
+
+  try {
+    const query = `
+      INSERT INTO agendamento 
+      (titulo, data, id_funcionario, id_administrador)
+      VALUES (?, ?, ?, ?)
+    `;
+
+    const [result] = await pool.execute(query, [
+      titulo,
+      data,
+      id_funcionario,
+      id_administrador
+    ]);
+
+    res.status(201).json({
+      message: 'Agendamento criado com sucesso',
+      id_agendamento: result.insertId
+    });
+
+  } catch (error) {
+    console.error('Erro ao criar agendamento:', error);
+    res.status(500).json({
+      error: 'Erro ao criar agendamento',
+      details: error.message
+    });
+  }
+});
+
 module.exports = router;
