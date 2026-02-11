@@ -6,7 +6,7 @@ router.get('/:id', async (req, res) => {
     const administradorId = req.params.id;
     try {
         const [rows] = await pool.execute('SELECT * FROM administrador  WHERE id_administrador  = ?', [administradorId]);
-        if (rows.lenght === 0) {
+        if (rows.length === 0) {
             return res.status(404).json({error: 'Administrador não encontrado' });
         }
         res.json(rows[0]);
@@ -19,17 +19,17 @@ router.get('/:id', async (req, res) => {
 router.get('/', async (req, res) => {    
     try {
         const [rows] = await pool.execute('SELECT * FROM administrador');
-        if (rows.lenght === 0) {
+        if (rows.length === 0) {
             return res.status(404).json({error: 'Administradores não encontrados' });
         }
-        res.json(rows[0]);
+        res.json(rows);
     }   catch (error) {
         console.error('Erro ao consultar administradores', error);
         res.status(500).json({error: 'Erro ao consultar administradores', details: error.message})
     }
 });
 
-router.delete('/:id/permaAdm', async (req, res) => {
+router.delete('/:id/permanente', async (req, res) => {
   const administradorId = req.params.id;
   
   try {
@@ -107,6 +107,77 @@ router.post('/', async (req, res) => {
     console.error('Erro ao criar administrador:', error);
     res.status(500).json({
       error: 'Erro ao criar administrador',
+      details: error.message
+    });
+  }
+});
+
+// Rota PUT - /administrador/:id
+// Atualiza TODOS os dados do administrador
+router.put('/:id', async (req, res) => {
+  const administradorId = req.params.id;
+  const { nome, email, cpf, status } = req.body;
+
+  // Verificação: garante que o ID seja um número válido
+  if (isNaN(administradorId)) {
+    return res.status(400).json({ error: 'ID inválido' });
+  }
+
+  // Verificação: garante que todos os campos obrigatórios foram enviados
+  if (!nome || !email || !cpf || !status) {
+    return res.status(400).json({
+      error: 'Dados incompletos',
+      message: 'PUT exige nome, email, CPF e status'
+    });
+  }
+
+  try {
+    // Verificação: checa se o administrador existe
+    const [administrador] = await pool.execute(
+      'SELECT * FROM administrador WHERE id_administrador = ?',
+      [administradorId]
+    );
+
+    if (administrador.length === 0) {
+      return res.status(404).json({ error: 'Administrador não encontrado' });
+    }
+
+    // Verificação: evita duplicar email ou CPF de outro administrador
+    const [duplicado] = await pool.execute(
+      'SELECT * FROM administrador WHERE (email = ? OR cpf = ?) AND id_administrador != ?',
+      [email, cpf, administradorId]
+    );
+
+    if (duplicado.length > 0) {
+      return res.status(409).json({
+        error: 'Conflito de dados',
+        message: 'Email ou CPF já pertence a outro administrador'
+      });
+    }
+
+    // Atualização completa do administrador
+    await pool.execute(
+      `UPDATE administrador
+       SET nome = ?, email = ?, cpf = ?, status = ?
+       WHERE id_administrador = ?`,
+      [
+        nome.trim(),
+        email.trim(),
+        cpf.trim(),
+        status,
+        administradorId
+      ]
+    );
+
+    res.json({
+      message: 'Administrador atualizado com sucesso (PUT)',
+      id_administrador: administradorId
+    });
+
+  } catch (error) {
+    console.error('Erro ao atualizar administrador:', error);
+    res.status(500).json({
+      error: 'Erro ao atualizar administrador',
       details: error.message
     });
   }
