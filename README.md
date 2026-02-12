@@ -27,6 +27,7 @@ Lembrando que a ideia do projeto é uma relação SOMENTE entre membros da empre
 ### 1. Clone o repositório
 
 git clone > https://github.com/viniking08/agendaEmpresarial.git
+
 cd AGENDAEMPRESA
 
 ### 2. Configure as variáveis de ambiente
@@ -40,8 +41,11 @@ Crie um arquivo e nomeie como ".env".
 PORT= *port*
 
 DB_HOST= *localhost*
+
 DB_USER= *usuario*
+
 DB_PASSWORD= *senha*
+
 DB_NAME= *nome*
 
 ### 3. Instale as dependências (no terminal)
