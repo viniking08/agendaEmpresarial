@@ -38,15 +38,13 @@ Crie um arquivo e nomeie como ".env".
 
 #### Depois configure conforme o seu banco de dados e seguindo o formato do .envexemple:
 
+```bash
 PORT= *port*
-
 DB_HOST= *localhost*
-
 DB_USER= *usuario*
-
 DB_PASSWORD= *senha*
-
 DB_NAME= *nome*
+```
 
 ### 3. Instale as dependências (no terminal)
 
