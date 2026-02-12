@@ -40,10 +40,10 @@ Crie um arquivo e nomeie como ".env".
 
 ```bash
 PORT= *port*
-DB_HOST= *localhost*
-DB_USER= *usuario*
-DB_PASSWORD= *senha*
-DB_NAME= *nome*
+DB_HOST= localhost
+DB_USER= usuario
+DB_PASSWORD= senha
+DB_NAME= nome
 ```
 
 ### 3. Instale as dependências (no terminal)
@@ -78,12 +78,13 @@ Observação: os CPFs devem ser válidos devido à validação.
 ```
 
 ### Administradores
-Arquivo: src/routes/administrador.js
+Arquivo: ´src/routes/administrador.js´
 
 - Criar administrador  
   Método: POST  
   Rota: /administrador  
   Exemplo de JSON:
+  ```json
   {
     "nome": "João Silva",
     "email": "joao@email.com",
@@ -99,12 +100,14 @@ Arquivo: src/routes/administrador.js
   Método: PUT  
   Rota: /administrador/:id  
   Exemplo de JSON:
+  ```json
   {
     "nome": "João Atualizado",
     "email": "joaoatualizado@email.com",
     "cpf": "12345678900",
     "status": "inativo"
   }
+  ```
 
 - Deletar administrador  
   Método: DELETE  
@@ -118,12 +121,14 @@ Arquivo: src/routes/funcionario.js
   Método: POST  
   Rota: /funcionario  
   Exemplo de JSON:
+  ```json
   {
     "nome": "Maria Souza",
     "email": "maria@email.com",
     "cpf": "98765432100",
     "status": "ativo"
   }
+  ```
 
 - Listar funcionários  
   Método: GET  
@@ -133,12 +138,14 @@ Arquivo: src/routes/funcionario.js
   Método: PUT  
   Rota: /funcionario/:id  
   Exemplo de JSON:
+  ```json
   {
     "nome": "Maria Atualizada",
     "email": "mariaatualizada@email.com",
     "cpf": "98765432100",
     "status": "inativo"
   }
+  ```
 
 - Deletar funcionário  
   Método: DELETE  
@@ -152,12 +159,14 @@ Arquivo: src/routes/agendamento.js
   Método: POST  
   Rota: /agendamento  
   Exemplo de JSON:
+  ```json
   {
     "titulo": "Reunião de Planejamento",
     "data": "2026-03-14 11:00:00",
     "id_funcionario": 5,
     "id_administrador": 5
   }
+  ```
 
 - Listar agendamentos  
   Método: GET  
@@ -167,12 +176,14 @@ Arquivo: src/routes/agendamento.js
   Método: PUT  
   Rota: /agendamento/:id  
   Exemplo de JSON:
+  ```json
   {
     "titulo": "Reunião Atualizada",
     "data": "2026-03-15 15:00:00",
     "id_funcionario": 3,
     "id_administrador": 2
   }
+  ```
 
 - Cancelar agendamento  
   Método: DELETE  
