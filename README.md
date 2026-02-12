@@ -78,7 +78,7 @@ Observação: os CPFs devem ser válidos devido à validação.
 ```
 
 ### Administradores
-Arquivo: ´src/routes/administrador.js´
+Arquivo: `src/routes/administrador.js`
 
 - Criar administrador  
   Método: POST  
@@ -115,7 +115,7 @@ Arquivo: ´src/routes/administrador.js´
 
 
 ### Funcionários
-Arquivo: src/routes/funcionario.js
+Arquivo: `src/routes/funcionario.js`
 
 - Criar funcionário  
   Método: POST  
@@ -153,7 +153,7 @@ Arquivo: src/routes/funcionario.js
 
 
 ### Agendamentos
-Arquivo: src/routes/agendamento.js
+Arquivo: `src/routes/agendamento.js`
 
 - Criar agendamento  
   Método: POST  
