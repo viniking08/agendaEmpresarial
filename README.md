@@ -70,7 +70,7 @@ Utilizando POSTMAN, nas rotas de POST e PUT é necessário ir na aba "body" e de
 
 Observação: os CPFs devem ser válidos devido à validação.
 
-```
+```json
 {
 "titulo": "Alinhamento de Equipe",
 "data": "2026-03-14 11:00:00",
