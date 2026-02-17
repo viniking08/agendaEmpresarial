@@ -26,9 +26,7 @@ Lembrando que a ideia do projeto é uma relação SOMENTE entre membros da empre
 
 ### 1. Clone o repositório
 
-git clone > https://github.com/viniking08/agendaEmpresarial.git
-
-cd AGENDAEMPRESA
+git clone https://github.com/viniking08/agendaEmpresarial.git
 
 ### 2. Configure as variáveis de ambiente
 
