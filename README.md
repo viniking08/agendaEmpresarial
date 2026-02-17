@@ -58,6 +58,8 @@ O servidor iniciará em:
 
 http://localhost:3000
 
+Lembrando que o "3000" do localhost é variável dependendo da sua PORT
+
 ## Rotas da API
 
 ### Como utilizar as rotas:
