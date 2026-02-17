@@ -17,7 +17,7 @@ Lembrando que a ideia do projeto é uma relação SOMENTE entre membros da empre
 
 ## Tecnologias Utilizadas
 
-- Node.js
+- Node.js (Necessário ter)
 - Express
 - Dotenv
 - Banco de Dados (configurado em src/config/db.js)
