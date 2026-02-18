@@ -1,70 +1,60 @@
-1 GET Administradores (inicial)
-GET /administrador
-
-2 POST Criar Administrador
+1. GET /administrador
+2. POST /administrador
 {
   "nome": "João Silva",
   "email": "joao@email.com",
-  "cpf": "12345678900",
+  "cpf": "66790849033",
   "status": "ativo"
 }
-
-3 GET Administradores (mostrar que foi criado)
-GET /administrador
-
-4 GET Funcionários (inicial)
-GET /funcionario
-
-5 POST Criar Funcionário
+3. GET /administrador
+4. GET /funcionario
+5. POST /funcionario
 {
   "nome": "Maria Souza",
   "email": "maria@email.com",
-  "cpf": "98765432100",
+  "cpf": "19522035033",
   "status": "ativo"
 }
-
-6 GET Funcionários (mostrar que foi criado)
-GET /funcionario
-
-7 GET Agendamentos (inicial)
-GET /agendamento
-
-8 POST Criar Agendamento
+6. GET /funcionario
+7. GET /agendamento
+8. POST /agendamento
 {
   "titulo": "Reunião de Planejamento",
   "data": "2026-03-14 11:00:00",
   "id_funcionario": 1,
   "id_administrador": 1
 }
-
-9 GET Agendamentos (mostrar que foi criado)
-GET /agendamento
-
-10 PUT Atualizar Agendamento (única atualização)
+9. GET /agendamento
+10. PUT /agendamento/1
 {
   "titulo": "Reunião Atualizada",
   "data": "2026-03-15 15:00:00",
   "id_funcionario": 1,
   "id_administrador": 1
 }
+11. GET /agendamento
+12. DELETE /agendamento/1
+13. GET /agendamento
+14. DELETE /funcionario/1
+15. GET /funcionario
+16. DELETE /administrador/1
+17. GET /administrador
 
-11 GET Agendamentos (mostrar que foi atualizado)
-GET /agendamento
+----------------------
 
-12 DELETE Agendamento
-DELETE /agendamento/1
+Rotas:
 
-13 GET Agendamentos (mostrar que foi deletado)
-GET /agendamento
+1. GET /administrador
+2. POST /administrador
+3. PUT /administrador/:id
+4. DELETE /administrador/:id
 
-14 DELETE Funcionário
-DELETE /funcionario/1
+5. GET /funcionario
+6. POST /funcionario
+7. PUT /funcionario/:id
+8. DELETE /funcionario/:id
 
-15 GET Funcionários (mostrar que foi deletado)
-GET /funcionario
-
-16 DELETE Administrador
-DELETE /administrador/1
-
-17 GET Administradores (mostrar que foi deletado)
-GET /administrador
+9. GET /agendamento
+10. POST /agendamento
+11. PUT /agendamento/:id
+12. DELETE /agendamento/:id
