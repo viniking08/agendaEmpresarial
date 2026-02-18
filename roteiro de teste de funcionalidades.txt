@@ -1,0 +1,70 @@
+1 GET Administradores (inicial)
+GET /administrador
+
+2 POST Criar Administrador
+{
+  "nome": "João Silva",
+  "email": "joao@email.com",
+  "cpf": "12345678900",
+  "status": "ativo"
+}
+
+3 GET Administradores (mostrar que foi criado)
+GET /administrador
+
+4 GET Funcionários (inicial)
+GET /funcionario
+
+5 POST Criar Funcionário
+{
+  "nome": "Maria Souza",
+  "email": "maria@email.com",
+  "cpf": "98765432100",
+  "status": "ativo"
+}
+
+6 GET Funcionários (mostrar que foi criado)
+GET /funcionario
+
+7 GET Agendamentos (inicial)
+GET /agendamento
+
+8 POST Criar Agendamento
+{
+  "titulo": "Reunião de Planejamento",
+  "data": "2026-03-14 11:00:00",
+  "id_funcionario": 1,
+  "id_administrador": 1
+}
+
+9 GET Agendamentos (mostrar que foi criado)
+GET /agendamento
+
+10 PUT Atualizar Agendamento (única atualização)
+{
+  "titulo": "Reunião Atualizada",
+  "data": "2026-03-15 15:00:00",
+  "id_funcionario": 1,
+  "id_administrador": 1
+}
+
+11 GET Agendamentos (mostrar que foi atualizado)
+GET /agendamento
+
+12 DELETE Agendamento
+DELETE /agendamento/1
+
+13 GET Agendamentos (mostrar que foi deletado)
+GET /agendamento
+
+14 DELETE Funcionário
+DELETE /funcionario/1
+
+15 GET Funcionários (mostrar que foi deletado)
+GET /funcionario
+
+16 DELETE Administrador
+DELETE /administrador/1
+
+17 GET Administradores (mostrar que foi deletado)
+GET /administrador
