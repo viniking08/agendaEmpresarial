@@ -47,14 +47,15 @@ Rotas:
 1. GET /administrador
 2. POST /administrador
 3. PUT /administrador/:id
-4. DELETE /administrador/:id
+4. DELETE /administrador/:id/permanente
 
 5. GET /funcionario
 6. POST /funcionario
 7. PUT /funcionario/:id
-8. DELETE /funcionario/:id
+8. DELETE /funcionario/:id/permanente
 
 9. GET /agendamento
 10. POST /agendamento
 11. PUT /agendamento/:id
-12. DELETE /agendamento/:id
+12. DELETE /agendamento/:id/permanente
+
