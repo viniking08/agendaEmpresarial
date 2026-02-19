@@ -1,3 +1,7 @@
 # Cópia do .env mas sem dados reais
 
-PORT = 3005
+PORT=3005
+DB_HOST=localhost
+DB_USER=postgres
+DB_PASS=senha
+DB_NAME=nome_do_banco
